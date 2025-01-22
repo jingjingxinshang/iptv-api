@@ -34,7 +34,7 @@ jobs:
         run: |
           echo "OPEN_DRIVER=$(python -c '
           try:
-            from utils.config import lgq_config
+            from utils.config import config
             open_driver = config.open_driver
           except:
             open_driver = False
@@ -65,14 +65,14 @@ jobs:
           git diff
           final_file=$(python -c '
           try: 
-            from utils.config import lgq_config
+            from utils.config import config
             final_file = config.final_file
           except: 
             final_file = "output/result.txt"
           print(final_file)')
           final_m3u_file=$(python -c '
           try: 
-            from utils.config import lgq_config
+            from utils.config import config
             import os
             final_file = config.final_file
             final_m3u_file = os.path.splitext(final_file)[0] + ".m3u"
